@@ -72,7 +72,7 @@ public class SecurityConfig {
 
                 // ── Public endpoints (no token required) ──────────────────
                 .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/setup/**").permitAll()  // ✅ Allow initial admin creation
+                .requestMatchers("/api/setup/**").permitAll()  // Allow initial admin creation
                 .requestMatchers("/actuator/health").permitAll()
 
                 // ── ADMIN-ONLY: User management ────────────────────────────
