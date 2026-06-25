@@ -79,6 +79,9 @@ public class SecurityConfig {
                 // Workers cannot view, create, update or delete users
                 .requestMatchers("/api/users/**").hasRole("ADMIN")
 
+                // ── ADMIN-ONLY: Login history (device/IP audit trail) ──────
+                .requestMatchers("/api/login-history/**").hasRole("ADMIN")
+
                 // ── ADMIN-ONLY: Stock history ───────────────────────────────
                 // Workers cannot view stock history
                 .requestMatchers("/api/stock-history/**").hasRole("ADMIN")
