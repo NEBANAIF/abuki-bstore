@@ -33,6 +33,11 @@ public class LoginHistory {
     @Column(name = "user_agent", length = 500)
     private String userAgent;
 
+    // Links this login event to a Device row (see Device.java). Nullable —
+    // older rows recorded before this feature existed won't have one.
+    @Column(name = "fingerprint", length = 100)
+    private String fingerprint;
+
     @Column(name = "logged_in_at", updatable = false)
     private LocalDateTime loggedInAt;
 
@@ -56,6 +61,9 @@ public class LoginHistory {
 
     public String getUserAgent() { return userAgent; }
     public void setUserAgent(String userAgent) { this.userAgent = userAgent; }
+
+    public String getFingerprint() { return fingerprint; }
+    public void setFingerprint(String fingerprint) { this.fingerprint = fingerprint; }
 
     public LocalDateTime getLoggedInAt() { return loggedInAt; }
     public void setLoggedInAt(LocalDateTime loggedInAt) { this.loggedInAt = loggedInAt; }

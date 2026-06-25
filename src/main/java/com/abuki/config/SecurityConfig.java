@@ -82,6 +82,9 @@ public class SecurityConfig {
                 // ── ADMIN-ONLY: Login history (device/IP audit trail) ──────
                 .requestMatchers("/api/login-history/**").hasRole("ADMIN")
 
+                // ── ADMIN-ONLY: Device registry (rename / block / unblock) ──
+                .requestMatchers("/api/devices/**").hasRole("ADMIN")
+
                 // ── ADMIN-ONLY: Stock history ───────────────────────────────
                 // Workers cannot view stock history
                 .requestMatchers("/api/stock-history/**").hasRole("ADMIN")
